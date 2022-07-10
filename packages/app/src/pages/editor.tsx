@@ -12,7 +12,7 @@ const EditorScreen: NextPage = () => {
   const { data: canvasPrompt, fetching } = canvasPromptResult;
 
   return canvasPrompt && !fetching ? (
-    <div className="flex flex-col justify-center h-full w-full items-center text-white">
+    <div className="flex flex-col justify-center h-full w-full items-center text-white bg-bg">
       <div className="flex-1" />
       <div className="flex-1">
         <Header title="Daily Canvas"></Header>

@@ -18,7 +18,7 @@ const SVG_OPENER =
   '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">';
 const SVG_CLOSER = "</svg>";
 
-function transpose(matrix: any) {
+export function transpose(matrix: any) {
   return matrix.reduce(
     (prev: any, next: any) =>
       next.map((_: any, i: number) => (prev[i] || []).concat(next[i])),

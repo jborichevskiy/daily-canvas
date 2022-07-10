@@ -7,7 +7,11 @@ module.exports = {
     fontFamily: {
       mono: ["pixeloid"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        bg: "#131313",
+      },
+    },
   },
   plugins: [],
 };

@@ -90,7 +90,7 @@ const HomePage: NextPage = () => {
   };
 
   return canvasResult && dailyCanvas && !fetching ? (
-    <div className="flex flex-col h-full w-full items-center text-white overflow-hidden">
+    <div className="flex flex-col h-full w-full items-center text-white overflow-hidden bg-bg">
       <div className="flex-1" />
       <div className="flex-1 canvas-fix">
         <Header

@@ -25,7 +25,7 @@ const RiffEditorScreen: NextPage = () => {
   }, [fetching, canvasResponse, error, riffId, router]);
 
   return canvasResponse ? (
-    <div className="flex flex-col h-full w-full items-center">
+    <div className="flex flex-col h-full w-full items-center bg-bg">
       <div className="flex-1" />
       <div className="flex-1 ">
         <Header title="Daily Canvas" className="pb-4"></Header>

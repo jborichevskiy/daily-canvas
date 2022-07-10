@@ -17,6 +17,7 @@ import Button from "../../components/Button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { getActiveToolStyle } from "./utils";
 import useCanvasResponse from "../../hooks/use-canvas-response";
+import CanvasAnimation from "../CanvasAnimation";
 
 interface EditorProps {
   riffId?: number;
@@ -213,7 +214,9 @@ const Editor = ({ riffId, palette, height = 20, width = 20 }: EditorProps) => {
   };
 
   const isLoading =
-    isLoadingWrite || isTransactionLoading || isPollingForCanvas;
+    isLoadingWrite ||
+    isTransactionLoading ||
+    (isPollingForCanvas && Boolean(pollingInterval));
 
   const publishButtonLabel = useMemo(() => {
     if (isLoading && isLoadingWrite) return CONTRACT_SUBMITTING_LOADING_MESSAGE;
@@ -230,40 +233,58 @@ const Editor = ({ riffId, palette, height = 20, width = 20 }: EditorProps) => {
     pollingInterval,
   ]);
 
+  console.log({
+    isLoading,
+    isLoadingWrite,
+    isTransactionLoading,
+    isPollingForCanvas,
+  });
+
   return (
     <div className="flex flex-col">
       <div className="editor">
-        <div
-          className="canvas bg-white"
-          draggable={false}
-          onPointerDown={(e) => {
-            setDrawing(true);
-          }}
-          onPointerUp={() => setDrawing(false)}
-          onMouseLeave={() => setDrawing(false)}
-          onPointerLeave={() => setDrawing(false)}
-        >
-          {columns.map((y) => {
-            return rows.map((x) => {
-              return (
-                <div
-                  id={`${x}_${y}`}
-                  key={`${x}_${y}`}
-                  className={`box ${isLoading && "box-disabled"}`}
-                  style={{
-                    // @ts-ignore
-                    backgroundColor: pixels?.[x]?.[y],
-                  }}
-                  onPointerEnter={!isLoading ? onMouseEnter : () => {}}
-                  onMouseDown={!isLoading ? onMouseEnter : () => {}}
-                  onMouseOver={!isLoading ? onMouseEnter : () => {}}
-                  onTouchMove={!isLoading ? touchEnter : () => {}}
-                  onTouchStart={!isLoading ? touchEnter : () => {}}
-                ></div>
-              );
-            });
-          })}
-        </div>
+        {isLoading === undefined || isLoading === false ? (
+          <div
+            className="canvas bg-white"
+            draggable={false}
+            onPointerDown={(e) => {
+              setDrawing(true);
+            }}
+            onPointerUp={() => setDrawing(false)}
+            onMouseLeave={() => setDrawing(false)}
+            onPointerLeave={() => setDrawing(false)}
+          >
+            {columns.map((y) => {
+              return rows.map((x) => {
+                return (
+                  <div
+                    id={`${x}_${y}`}
+                    key={`${x}_${y}`}
+                    className={`box ${isLoading && "box-disabled"}`}
+                    style={{
+                      // @ts-ignore
+                      backgroundColor: pixels?.[x]?.[y],
+                    }}
+                    onPointerEnter={!isLoading ? onMouseEnter : () => {}}
+                    onMouseDown={!isLoading ? onMouseEnter : () => {}}
+                    onMouseOver={!isLoading ? onMouseEnter : () => {}}
+                    onTouchMove={!isLoading ? touchEnter : () => {}}
+                    onTouchStart={!isLoading ? touchEnter : () => {}}
+                  ></div>
+                );
+              });
+            })}
+          </div>
+        ) : (
+          <CanvasAnimation
+            pixels={pixels}
+            height={height}
+            width={width}
+            isLoading={isTransactionLoading || isPollingForCanvas}
+            palette={palette}
+            className="mb-4"
+          />
+        )}
       </div>
 
       {/* {riffId && riffId > 0 && (
@@ -344,7 +365,7 @@ const Editor = ({ riffId, palette, height = 20, width = 20 }: EditorProps) => {
               style={{
                 backgroundColor: color,
               }}
-              onClick={(e) => setActiveColor(color)}
+              onClick={() => setActiveColor(color)}
             ></div>
           );
         })}
@@ -360,7 +381,7 @@ const Editor = ({ riffId, palette, height = 20, width = 20 }: EditorProps) => {
               style={{
                 backgroundColor: color,
               }}
-              onClick={(e) => setActiveColor(color)}
+              onClick={() => setActiveColor(color)}
             ></div>
           );
         })}
@@ -388,6 +409,7 @@ const Editor = ({ riffId, palette, height = 20, width = 20 }: EditorProps) => {
           )}
         </ConnectButton.Custom>
       </div>
+
       <style jsx>{`
         .canvas {
           display: grid;

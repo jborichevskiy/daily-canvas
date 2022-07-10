@@ -148,7 +148,7 @@ const CanvasViewPage: NextPage = () => {
   });
 
   return currentCanvas ? (
-    <div className="flex flex-col h-full w-full items-center overflow-hidden">
+    <div className="flex flex-col h-full w-full items-center overflow-hidden bg-bg">
       <div className="flex-1" />
       <div className="flex-1 canvas-fix">
         <Header title="Daily Canvas" className="pb-4"></Header>
