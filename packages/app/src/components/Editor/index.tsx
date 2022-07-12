@@ -9,7 +9,7 @@ import { defaultAbiCoder } from "ethers/lib/utils";
 import { usePixels } from "../../components/usePixels";
 import { useRouter } from "next/router";
 import { DailyCanvas__factory } from "../../types";
-import DailyCanvas from "@web3-scaffold/contracts/deploys/rinkeby/DailyCanvas.json";
+import DailyCanvas from "../../contracts/rinkeby/DailyCanvas.json";
 
 import SVG from "react-inlinesvg";
 
