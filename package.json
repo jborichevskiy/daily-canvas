@@ -5,6 +5,9 @@
     "node": "16",
     "pnpm": "6"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
     "dev": "pnpm -r dev --stream",
