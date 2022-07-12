@@ -3,7 +3,7 @@
   "private": true,
   "engines": {
     "node": "16",
-    "pnpm": "6"
+    "npm": "6"
   },
   "workspaces": [
     "packages/contracts"
