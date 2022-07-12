@@ -1,5 +1,5 @@
 // import ExampleNFTGoerli from "@web3-scaffold/contracts/deploys/goerli/ExampleNFT.json";
-import DailyCanvas from "@web3-scaffold/contracts/deploys/rinkeby/DailyCanvas.json";
+import DailyCanvas from "./contracts/rinkeby/DailyCanvas.json";
 // import { ExampleNFT__factory } from "@web3-scaffold/contracts/types";
 import { useContractRead } from "wagmi";
 
