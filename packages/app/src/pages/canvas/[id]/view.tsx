@@ -20,6 +20,7 @@ import { CanvasResponse } from "../../../types/Daily";
 import Footer from "../../../components/Footer";
 import useDailyCanvasPrompt from "../../../hooks/use-daily-canvas-prompt";
 import { formatRelative } from "date-fns";
+import domToImage from "dom-to-image";
 
 const CanvasViewQuery = `query IndividualCanvasQuery($canvasId: ID) {
   canvasResponses(where: {id: $canvasId}) {
@@ -174,12 +175,24 @@ const CanvasViewPage: NextPage = () => {
     }
   });
 
+  useEffect(() => {
+    const svgNode = document.getElementById(`svg-${currentCanvas?.id}`);
+
+    domToImage.toPng(svgNode).then(function (dataUrl: string) {
+      const img = new Image();
+      img.src = dataUrl;
+      img.className = "hidden";
+      document.body.appendChild(img);
+    });
+  }, [currentCanvas]);
+
   return currentCanvas ? (
     <div className="flex flex-col h-full w-full items-center overflow-hidden">
       <div className="flex-1" />
       <div className="flex-1 canvas-fix">
         <Header title="Daily Canvas" className="pb-4"></Header>
         <SVG
+          id={`svg-${currentCanvas.id}`}
           src={currentCanvas.svg}
           width={Number(currentCanvas.prompt.width) * PIXEL_SIZE}
           height={Number(currentCanvas.prompt.height) * PIXEL_SIZE}
@@ -240,6 +253,7 @@ const CanvasViewPage: NextPage = () => {
               <span>{riffLoading ? "Loading Riff..." : "Riff"}</span>
             </Button>
           </div>
+          <canvas></canvas>
         </div>
       </div>
       <div className="flex-[2]" />

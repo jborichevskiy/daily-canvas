@@ -23,6 +23,7 @@
     "@web3-scaffold/contracts": "workspace:*",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
+    "dom-to-image": "^2.6.0",
     "ethers": "^5.5.2",
     "fs": "^0.0.1-security",
     "graphql": "^16.2.0",
