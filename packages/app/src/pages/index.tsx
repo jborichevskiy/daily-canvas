@@ -173,7 +173,7 @@ const HomePageScrollable: NextPage = () => {
           }
         `}
       </style>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

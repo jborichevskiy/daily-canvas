@@ -28,7 +28,7 @@ const EditorScreen: NextPage = () => {
       </div>
       <div className="flex-[2]" />
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   ) : (
     <div />
