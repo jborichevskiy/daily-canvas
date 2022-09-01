@@ -30,14 +30,7 @@ const Countdown = () => {
     );
   };
 
-  return (
-    <ReactCountdown
-      date={endOfDayDate}
-      zeroPadTime={0}
-      zeroPadDays={0}
-      renderer={renderer}
-    />
-  );
+  return <ReactCountdown date={endOfDayDate} renderer={renderer} />;
 };
 
 export default Countdown;
