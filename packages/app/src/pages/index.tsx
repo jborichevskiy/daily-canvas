@@ -94,7 +94,7 @@ const HomePageScrollable: NextPage = () => {
 
   return (
     <div className="flex justify-center w-full text-white">
-      <Header title="The Scroll" className="fixed" />
+      <Header title="The Garden" className="fixed" />
       {canvasResults && dailyCanvases && !fetching ? (
         <>
           <div className="fixed bottom-0 border-gray-500 items-center justify-center	 z-50 text-lg w-[360px] text-center font-mono bg-gradient-to-t from-[#131313] to-background-opacity-0">

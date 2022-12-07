@@ -21,7 +21,7 @@ export default function About() {
           ></Image>
         </div>
         <div className="mt-5 text-4xl text-center font-mono">
-          The Scroll is a new place for you to draw and riff.
+          The Garden is a new place for you to draw and riff.
         </div>
 
         <div className="mt-[40px]">

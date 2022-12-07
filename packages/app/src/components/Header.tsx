@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  title = "Daily Canvas",
+  title = "The Garden",
   onClick,
   className = "",
 }: HeaderProps) => {
