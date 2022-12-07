@@ -8,7 +8,7 @@ import useDailyCanvasPrompt from "../hooks/use-daily-canvas-prompt";
 export default function About() {
   return (
     <div className="flex justify-center w-full text-white">
-      <Header title="The Scroll" className="fixed" />
+      <Header title="The Garden" className="fixed" />
 
       <div className="flex-wrap mt-[160px] min-w-[360px] max-w-[360px]">
         <div className="w-full flex justify-center">
