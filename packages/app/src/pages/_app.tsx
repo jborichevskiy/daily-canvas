@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title>The Garden</title>
         <meta
           name="description"
-          content="One new canvas, everyday, for your pixels."
+          content="A new place to draw and riff with the internet."
         />
         <meta
           name="viewport"
