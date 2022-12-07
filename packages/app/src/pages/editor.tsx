@@ -12,7 +12,7 @@ const EditorScreen: NextPage = () => {
 
   return canvasPrompt && !fetching ? (
     <div className="flex flex-col justify-center h-full w-full items-center text-white">
-      <Header title="The Scroll"></Header>
+      <Header title="The Garden"></Header>
 
       <div className="flex-1" />
       <div className="flex-1">

@@ -93,7 +93,7 @@ const HomePage: NextPage = () => {
     <div className="flex flex-col h-full w-full items-center text-white overflow-hidden">
       <Header
         onClick={handleHeaderClick}
-        title="The Scroll"
+        title="The Garden"
         className="pb-4"
       ></Header>
       <div className="flex-1" />
