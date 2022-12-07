@@ -99,7 +99,9 @@ const HomePageScrollable: NextPage = () => {
         <>
           <div className="fixed bottom-0 border-gray-500 items-center justify-center	 z-50 text-lg w-[360px] text-center font-mono bg-gradient-to-t from-[#131313] to-background-opacity-0">
             <div className="flex  p-3 justify-between">
-              <div className="cursor-pointer">Twitter</div>
+              <div className="cursor-pointer">
+                <Link href="https://twitter.com/gardenwtf">Twitter</Link>
+              </div>
               <div className="cursor-pointer">
                 <Link href="/about">WTF?</Link>
               </div>
