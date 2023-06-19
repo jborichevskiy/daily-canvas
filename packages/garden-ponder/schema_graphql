@@ -1,0 +1,19 @@
+type Response @entity {
+  id: ID!
+  author: Bytes!
+  tokenURI: String!
+  prompt: Prompt!
+  svg: String!
+  riffCanvasId: ID!
+  createdAt: Int!
+}
+
+type Prompt @entity {
+  id: ID!
+  width: BigInt!
+  height: BigInt!
+  author: Bytes!
+  palette: [String!]
+  createdAt: Int!
+  responses: [Response!]! @derivedFrom(field: "prompt")
+}
