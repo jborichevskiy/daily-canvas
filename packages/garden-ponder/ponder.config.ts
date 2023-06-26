@@ -9,8 +9,8 @@ export const config: PonderConfig = {
       name: "Garden",
       network: "goerli",
       abi: "./abis/Garden.json",
-      address: "0x7fA3bee4a3000A06D5a542471B17e6565BE6f297",
-      startBlock: 8976809,
+      address: "0x4cBFE96932855727Ae9bD6CCcF94beb366299249",
+      startBlock: 9240228,
     },
   ],
 };
